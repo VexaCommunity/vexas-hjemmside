@@ -11,20 +11,19 @@
     <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
     <!-- Custom CSS Files -->
     <link rel="stylesheet" href="nav.css">
-    <link rel="stylesheet" href="bcso.css">
+    <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-
 </head>
 
 <body>
 
     <nav>
         <div class="logo">
-           <a href="index.html"><img src="img/logo.png" alt="" height="100"></a>
+            <a href="index.html"><img src="img/logo.png" alt="" height="100"></a>
         </div>
         <button type="button" class="btn-hamburger" data-action="nav-toggle">
             <span></span>
@@ -34,161 +33,188 @@
             <span></span>
         </button>
         <ul class="nav-menu">
-            <li class="nav-item"><a href="index.html" class="current">Home</a></li>
+            <li class="nav-item"><a href="index.html">Home</a></li>
             <li class="nav-item"><a href="about.html">Om us</a></li>
-            <li class="nav-item"><a href="regler.html">Regler</a></li>
+            <li class="nav-item"><a href="regler.html"class="current">Regler</a></li>
             <li class="nav-item"><a href="Staff.html" target="_self">Staff Team</a></li>
             <li class="nav-item"><a href="https://discord.gg/yyCuWnEAGG" target="_blank">Discord</a></li>
             <li class="nav-item"><a href="ansøgninger.html" target="_self">Ansøgninger</a></li>
         </ul>
     </nav>
 
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Rules Selection</title>
-        <style>
-            body {
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                background: url('https://media.rockstargames.com/rockstargames/img/global/news/upload/pcvinewood_full.jpg') no-repeat center center/cover;
-                background-attachment: fixed;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 100vh;
-                margin: 0;
-                color: #fff;
-                text-align: left;
-                flex-direction: column;
-                padding: 20px;
-            }
-    
-            .container {
-                background: rgba(0, 0, 0, 0.85);
-                padding: 40px;
-                border-radius: 16px;
-                box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
-                max-width: 850px;
-                width: 90%;
-                backdrop-filter: blur(10px);
-                border: 2px solid rgba(255, 255, 255, 0.2);
-            }
-    
-            h1 {
-                color: #190396;
-                font-size: 3.2em;
-                margin-bottom: 20px;
-                text-shadow: 0 0 10px #190396;
-            }
-    
-            h2 {
-                font-size: 1.6em;
-                margin-bottom: 30px;
-                color: #e6e6e6;
-            }
-    
-            .button-container {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-                gap: 20px;
-            }
-    
-            .button {
-                background: linear-gradient(135deg, #190396, rgba(255, 255, 255, 0.2));
-                border: none;
-                padding: 18px;
-                border-radius: 12px;
-                cursor: pointer;
-                font-size: 1.2em;
-                font-weight: bold;
-                text-transform: uppercase;
-                transition: all 0.3s ease;
-                color: white;
-                box-shadow: 0 4px 12px #190396;
-            }
-    
-            .button:hover {
-                background: #190396;
-                color: #fff;
-                transform: scale(1.1);
-                box-shadow: 0 6px 15px #190396;
-            }
-    
-            .rules-container {
-                display: none;
-                margin-top: 30px;
-                text-align: left;
-                background: rgba(0, 0, 0, 0.9);
-                padding: 25px;
-                border-radius: 12px;
-                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.7);
-                max-height: 450px;
-                overflow-y: auto;
-                border: 2px solid rgba(255, 255, 255, 0.2);
-            }
-    
-            .rules-container h3 {
-                font-size: 2.2em;
-                margin-bottom: 15px;
-                color: #190396;
-                text-shadow: 0 0 10px #190396;
-            }
-    
-            .rules-container ul {
-                list-style-type: square;
-                margin-left: 20px;
-            }
-    
-            .rules-container li {
-                margin: 12px 0;
-                font-size: 1.2em;
-                line-height: 1.7;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <h1>Regler</h1>
-            <h2>Select a Category:</h2>
-            <div class="button-container" id="buttons"></div>
-            <div id="rules-container" class="rules-container">
-                <div id="rules-list"></div>
-            </div>
-        </div>
-    
-        <script>
-            const rulesData = {
-                "GENERELLE RP REGLER": [""],
-                "BANDE REGLER": ["",],
-                "OOC": ["",],
-                "CK/PK": [""],
-                "GREEN ZONES": ["",],
-                "WHITELISTED JOB": [""],
-                "RØVERI REGLER": [""],
-                "FIRMA REGLER": [""]
-            };
-    
-            const buttonContainer = document.getElementById("buttons");
-            const rulesContainer = document.getElementById("rules-container");
-            const rulesList = document.getElementById("rules-list");
-    
-            function showRules(category) {
-                rulesList.innerHTML = `<h3>${category}</h3><ul>` + rulesData[category].map(rule => `<li>${rule}</li>`).join("") + `</ul>`;
-                rulesContainer.style.display = "block";
-                rulesContainer.scrollIntoView({ behavior: "smooth" });
-            }
-    
-            Object.keys(rulesData).forEach(category => {
-                const button = document.createElement("div");
-                button.classList.add("button");
-                button.textContent = category;
-                button.onclick = () => showRules(category);
-                buttonContainer.appendChild(button);
-            });
-        </script>
-    </body>
-    </html>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    
+        
+
+        body {
+            font-family: 'Josefin Sans', sans-serif;
+            background: url('https://media.rockstargames.com/rockstargames/img/global/news/upload/pcvinewood_full.jpg') no-repeat center center/cover;
+            background-attachment: fixed;
+            color: #fff;
+            padding: 200px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        .container {
+            background: rgba(0, 0, 0, 0.85);
+            padding: 40px;
+            border-radius: 16px;
+            max-width: 900px;
+            width: 100%;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: #190396;
+            margin-bottom: 10px;
+            text-align: center;
+            text-shadow: 0 0 10px #190396;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .button {
+            padding: 14px 20px;
+            background: linear-gradient(135deg, #190396, #2f2f95);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(25, 3, 150, 0.4);
+        }
+
+        .button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 16px rgba(25, 3, 150, 0.6);
+        }
+
+        .rules-container {
+            display: none;
+            background-color: rgba(0, 0, 0, 0.95);
+            padding: 25px;
+            border-radius: 12px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .rules-container h3 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: #190396;
+        }
+
+        .rules-container ul {
+            padding-left: 20px;
+        }
+
+        .rules-container li {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 2rem; }
+            .button { font-size: 0.9rem; padding: 12px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Regler</h1>
+        <h2>Vælg en kategori</h2>
+        <div class="button-container" id="buttons"></div>
+        <div id="rules-container" class="rules-container">
+            <div id="rules-list"></div>
+        </div>
+    </div>
+
+    <script>
+        const rulesData = {
+            "GENERELLE RP REGLER": [
+                "Ingen Powergaming.",
+                "Ingen Metagaming.",
+                "RP skal tages seriøst til enhver tid."
+            ],
+            "BANDE REGLER": [
+                "Max 6 personer i en bande-situation.",
+                "Ingen bandekrig uden godkendelse."
+            ],
+            "OOC": [
+                "Hold en god tone i OOC.",
+                "Brug ikke OOC til at true eller nedgøre andre."
+            ],
+            "CK/PK": [
+                "CK kræver godkendelse fra ledelsen.",
+                "PK kan ske ved alvorlige konflikter eller krænkelser."
+            ],
+            "GREEN ZONES": [
+                "Ingen voldshandlinger i green zones.",
+                "Respekter sikkerhedsområder som hospital og politi."
+            ],
+            "WHITELISTED JOB": [
+                "Brug job-rollen ansvarligt og RP korrekt.",
+                "Misbrug af job kan føre til advarsel/ban."
+            ],
+            "RØVERI REGLER": [
+                "Kræv altid rimelig grund for røveri.",
+                "Ingen røveri i green zones."
+            ],
+            "FIRMA REGLER": [
+                "Firmaer skal drives aktivt og RP-mæssigt korrekt.",
+                "Ledelsen skal kontaktes for oprettelse."
+            ]
+        };
+
+        const buttonContainer = document.getElementById("buttons");
+        const rulesContainer = document.getElementById("rules-container");
+        const rulesList = document.getElementById("rules-list");
+
+        function showRules(category) {
+            rulesList.innerHTML = `<h3>${category}</h3><ul>` + rulesData[category].map(rule => `<li>${rule}</li>`).join("") + `</ul>`;
+            rulesContainer.style.display = "block";
+            rulesContainer.scrollIntoView({ behavior: "smooth" });
+        }
+
+        Object.keys(rulesData).forEach(category => {
+            const button = document.createElement("button");
+            button.className = "button";
+            button.textContent = category;
+            button.onclick = () => showRules(category);
+            buttonContainer.appendChild(button);
+        });
+    </script>
+</body>
+</html>
